@@ -1,0 +1,149 @@
+body {
+    font-family: arial;
+}
+
+#page {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.banner {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    .bannerDiv {
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: arial;
+    }
+}
+#topBanner {
+    background: #104a7c;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background: #fff;
+    gap: 10px;
+    color: #104a7c;
+    div {
+        background: #ecede8;
+    }
+    #sidebar{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: #fff;
+
+        div {
+            padding-left: 10px;
+        }
+        #joinDiv {
+            background: #104a7c;
+            color: #fff;
+            h2 {
+                border-bottom: 1px solid #fff;
+            }
+            #ribbon {
+                text-decoration: none;
+                position: relative;
+                background: #ffab00;
+                bottom: 10px;
+                right: -75%;
+                height: 32px;
+                padding: 0.5em 1.3em;
+                cursor: pointer;
+            }
+        }
+        .listDiv {
+            display: flex;
+            flex-direction: column;
+            h2 {
+                border-bottom: 1px solid #104a7c;
+            }
+            li {
+                a {
+                color: #104a7c;
+                }
+            }
+        }
+    }
+    #rightSide {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background: #fff;
+        #formDiv {
+            padding-left: 10px;
+            padding-right: 40%;
+            h2 {
+                font-weight: 400;
+                margin-left: 15px;
+            }
+            #dropdown{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-left: 10px;
+                select {
+                    width: 80%;
+                    padding: 10px;
+                    color: #104a7c;
+                    border: 1px #104a7c solid;
+                }
+                button {
+                    background: #ffab00;
+                    width: 25%;
+                    color: #104a7c;
+                    border: 0px;
+                    padding: 10px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+        .alertDiv {
+            padding: 3px 3px 3px 40px;
+            margin-top: 5px;
+            width: 100%;
+        }
+        #greenDiv {
+            background: #9fc;
+            background-image: url(https://www.truedelta.com/images/alert-green-bg.gif) 15px 3px no-repeat;
+            border: 1px solid #00994d;
+        }
+        #yellowDiv {
+            background: #ffc;
+            background-image: url(https://www.truedelta.com/images/alert-yellow-bg.gif) 15px 3px no-repeat;
+            border: 1px solid #cc0;
+        }
+        #aboutDiv {
+            margin-top: 5px;
+            padding: 10px;
+            p {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+#bottomBanner {
+    background: #646b70;
+    margin-top: 1%;
+}
+
+#copyrightDiv {
+    display: flex;
+    flex-direction: column;
+    color: #646b70;
+    a {
+        color: #646b70;
+    }
+}
