@@ -3,6 +3,38 @@
 <link rel="stylesheet" href="{% static 'problems/style.css' %}">
 
 <section id = "page">
+    <div id = "header">
+        <a id = "headerLogo" href = "/">
+            <img src="https://www.truedelta.com/images/logo-truedelta.gif" alt="truedelta | real car owners driving real car information">
+        </a>
+        <div id = "headerNav">
+            <div id = "headerLinks">
+                <p> Welcome, Guest </p>
+                <p> | </p>
+                <a href = "/join"> Join Now </a>
+                <p> | </p>
+                <a href = "/sign-in"> Sign In </a>
+                <p> | </p>
+                <a href = "/new_features"> Latest Features </a>
+            </div>
+            <div id = "membershipDiv">
+                <label> Current membership: </label>
+                <table id = "membershipTable">
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td> 0 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div id = "topBanner" class = "banner">
         <a class = "bannerDiv" href = "/reviews"> Reviews </a>
         <a class = "bannerDiv" href = "/next-car"> My Next Car </a>
@@ -21,7 +53,7 @@
             <div id = "joinDiv">
                 <h2> Join TrueDelta </h2>
                 <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
-                <a id = "ribbon"> Join Us</a>
+                <a id = "ribbon" href = "/join"> Join Us</a>
             </div>
             <div class = "listDiv">
                 <h2> Common Problem Report Queries </h2>
