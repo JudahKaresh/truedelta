@@ -1,0 +1,144 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'reliability/style.css' %}">
+
+<section id = "page">
+    <div id = "header">
+        <a id = "headerLogo" href = "/">
+            <img src="https://www.truedelta.com/images/logo-truedelta.gif" alt="truedelta | real car owners driving real car information">
+        </a>
+        <div id = "headerNav">
+            <div id = "headerLinks">
+                <p> Welcome, Guest </p>
+                <p> | </p>
+                <a href = "/join"> Join Now </a>
+                <p> | </p>
+                <a href = "/sign-in"> Sign In </a>
+                <p> | </p>
+                <a href = "/new_features"> Latest Features </a>
+            </div>
+            <div id = "membershipDiv">
+                <label> Current membership: </label>
+                <table id = "membershipTable">
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td> 0 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id = "topBanner" class = "banner">
+        <a class = "bannerDiv" href = "/reviews"> Reviews </a>
+        <a class = "bannerDiv" href = "/next-car"> My Next Car </a>
+        <a class = "bannerDiv" href = "/owner"> Ask an Owner </a>
+        <a class = "bannerDiv" href = "/reliability"> Reliability </a>
+        <a class = "bannerDiv" href = "/problems"> Problems </a>
+        <a class = "bannerDiv" href = "/mpg"> MPG </a>
+        <a class = "bannerDiv" href = "/prices"> Prices </a>
+        <a class = "bannerDiv" href = "/specs"> Specs </a>
+        <a class = "bannerDiv" href = "/photos"> Photos </a>
+        <a class = "bannerDiv" href = "/model-search"> Model Search </a>
+    </div>
+
+    <div id = "main">
+        <div id = "sidebar">
+            <div id = "joinDiv">
+                <h2> Join TrueDelta </h2>
+                <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
+                <a id = "ribbon" href = "/join"> Join Us</a>
+            </div>
+            <div class = "listDiv">
+                <h2>  Top Reliability Comparisons </h2>
+                <ol>
+                    <li> <a href = "/bloop"> Bloop </a></li>
+                    <li> <a href = "/shmoop"> Shmoop </a></li>
+                    <li> <a href = "/floop"> Floop </a></li>
+                </ol>
+            </div>
+        </div>
+        <div id = "rightSide">
+            <div id = "formDiv">
+                <h1> Compare Car Reliability </h1>
+                <form id = "dropdown" method = "post">
+                    {% csrf_token %}
+                    <h2> Report </h2>
+                    {{ reportForm.report }}
+                    <h2> Vehicle 1 </h2>
+                    {{ formOne.brand}}
+                    {{ formOne.model}}
+                    <h2> Vehicle 2 </h2>
+                    {{ formTwo.brand}}
+                    {{ formTwo.model}}
+                    <button type = "submit">Search</button>
+                </form>
+            </div>
+            <div id = "greenDiv" class = "alertDiv">
+                No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
+            </div>
+            <div id = "yellowDiv" class = "alertDiv">
+                <a href = "/sign-in">Sign in</a> or <a href = "/join"> join TrueDelta</a> to post your own repair histories.
+            </div>
+            <div id = "aboutDiv">
+                <h2> About TrueDelta's Repair History Survey</h2>
+                <p> TrueDelta's car reliability survey only collects data on car problems and repairs that occur after people join the panel. </p>
+                <h3> But our members wanted more. </h3>
+                <p> You wanted to report car problems and repairs that occurred before you joined. For you, TrueDelta developed the Car Repair History Survey. </p>
+                <h3> Details, not numbers. </h3>
+                <p> Repair descriptions won't tell you how many repairs you might face, but they can tell you the kinds of problems you might have. </p>
+                <p> Want to see how many repairs other owners have faced? Check out our <a href = "/reliability">latest reliability survey stats. </a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id = "bottomBanner" class = "banner">
+        <a class = "bannerDiv" href = "/contact-us"> Contact Us </a>
+        <a class = "bannerDiv" href = "/talk"> Talk </a>
+        <a class = "bannerDiv" href = "/blog"> Blog </a>
+        <a class = "bannerDiv" href = "/recent-news"> News </a>
+        <a class = "bannerDiv" href = "/about-us"> About </a>
+        <a class = "bannerDiv" href = "/recommend-us"> Recommend Us </a>
+        <a class = "bannerDiv" href = "/related-links"> Links </a>
+        <a class = "bannerDiv" href = "/xml/review_rss.xml"> RSS Feed </a>
+    </div>
+
+    <div id = "copyrightDiv">
+        <p> © 2004 - 2025 TrueDelta. All rights reserved. <a href = "/privacy-policy"> Privacy Policy </a> | <a href = "/terms"> Terms and Conditions </a> | <a href = "/copyright"> Copyright Policy </a></p>
+        <p> TrueDelta is not affiliated with any car manufacturer or their trademarks. </p>
+    </div>
+</section>
+<script>
+    const yearSelect = document.querySelector('#id_year');
+    const makeSelect = document.querySelector('#id_make');
+
+    yearSelect.addEventListener('change', function() {
+        const yearId = this.value;
+
+        if (yearId) {
+            fetch(`/problems/ajax/load-makes/?year_id=${yearId}`)
+            .then(response => response.json())
+            .then(data => {
+
+                // Clear existing options
+                makeSelect.innerHTML = '<option value="">---------</option>';
+
+                // Add new options
+                data.forEach(make => {
+                    const option = document.createElement('option');
+                    option.value = make.id;
+                    option.textContent = make.make_title;
+                    makeSelect.appendChild(option);
+                });
+            });
+        } else {
+            makeSelect.innerHTML = '<option value="">---------</option>';
+        }
+    });
+</script>

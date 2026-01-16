@@ -3,7 +3,6 @@ from django.forms import ModelForm
 
 # Create your models here.
 class Year(models.Model):
-    
     year = models.IntegerField()
     def __str__(self):
         return str(self.year)
