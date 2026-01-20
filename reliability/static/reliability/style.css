@@ -160,7 +160,7 @@ body {
             margin-top: 5px;
             width: 100%;
         }
-        #greenDiv {
+        .greenDiv {
             background: #9fc;
             background-image: url(https://www.truedelta.com/images/alert-green-bg.gif) 15px 3px no-repeat;
             border: 1px solid #00994d;
@@ -169,6 +169,19 @@ body {
             background: #ffc;
             background-image: url(https://www.truedelta.com/images/alert-yellow-bg.gif) 15px 3px no-repeat;
             border: 1px solid #cc0;
+        }
+        #middleDiv {
+            padding-left: 2%;
+            #reliabilityLinks {
+                margin-left: 4%;
+                display: flex;
+                flex-direction: row;
+                gap: 2%;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
         }
         #aboutDiv {
             margin-top: 5px;
