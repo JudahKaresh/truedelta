@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'problems.apps.ProblemsConfig',
     'reliability.apps.ReliabilityConfig',
+    'mpg.apps.MpgConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
