@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'mpg/style.css' %}">
+<link rel="stylesheet" href="{% static 'specs/style.css' %}">
 
 <section id = "page">
     <div id = "header">
@@ -56,15 +56,7 @@
                 <a id = "ribbon" href = "/join"> Join Us</a>
             </div>
             <div class = "listDiv">
-                <h2>  Top Gas Mileage Queries </h2>
-                <ol>
-                    <li> <a href = "/bloop"> Bloop </a></li>
-                    <li> <a href = "/shmoop"> Shmoop </a></li>
-                    <li> <a href = "/floop"> Floop </a></li>
-                </ol>
-            </div>
-            <div class = "listDiv">
-                <h2>  Top Gas Mileage Comparisons </h2>
+                <h2>  Most Wishlisted Cars: Specs </h2>
                 <ol>
                     <li> <a href = "/bloop"> Bloop </a></li>
                     <li> <a href = "/shmoop"> Shmoop </a></li>
@@ -74,42 +66,47 @@
         </div>
         <div id = "rightSide">
             <div id = "formDiv">
-                <h1> Real-World Gas Mileage </h1>
-
-                <h2> Find out the real deal: MPG for how and where you drive. </h2>
-
+                <h1> Compare Vehicle Specs and Features </h1>
                 <form id = "dropdown" method = "post">
                     {% csrf_token %}
+                    <h2> Report </h2>
+                    {{ reportForm.report }}
+                    {{ intlCheck }}
+                    {{ compareCheck }}
                     <h2> Vehicle 1 </h2>
-                    {{ formOne.brand }}
-                    {{ formOne.model }}
-                    {{ formOne.year }}
+                    {{ formOne.brand}}
+                    {{ formOne.model}}
                     <h2> Vehicle 2 </h2>
-                    {{ formTwo.brand }}
-                    {{ formTwo.model }}
-                    {{ formTwo.year }}
+                    {{ formTwo.brand}}
+                    {{ formTwo.model}}
                     <button type = "submit">Search</button>
                 </form>
+            </div>
+            <div id = "middleDiv">
+                <p> <strong> Note: </strong> <em> We have full features data on most cars from 2006 to 2018. If you don't see a model listed, we don't have this information for it.</em></p>
+                <p> Want to know which of two cars is more powerful? Which has more room inside? Perform a specs comparison to find out. </p>
+                <p> How do features compare? To see a full list of the standard and option features on both, perform a features comparison. </p>
+                <p> Know which features you want? Then head over to the <a href="/prices/"> price comparisons </a>, where you can select which features to include on both cars and we'll 
+                    then compare the prices before and after adjusting for feature differences. If you're a member, you can even specify how much to adjust the prices
+                     based on how much each specific feature is worth to you.</p>
             </div>
             <div class = "greenDiv" class = "alertDiv">
                 No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
             </div>
-            <div id = "yellowDiv" class = "alertDiv">
-                <a href = "/sign-in">Sign in</a> or <a href = "/join"> join TrueDelta</a> to report your own car's gas mileage.
-            </div>
             <div id = "aboutDiv">
-                <h2> About TrueDelta's Gas Mileage Survey </h2>
-                <p> "Government estimates" often won't match real-world gas mileage. Welcome to the solution. 
-                    Thanks to real drivers sharing real information, you'll learn what fuel economy and MPG 
-                    to actually expect from a car, SUV or minivan based on how you drive and the roads you typically drive on.
-                     TrueDelta's Gas Mileage Survey is the only survey to ask car owners about driving style, terrain, A/C use, driving speed, 
-                     and other factors that can dramatically affect gas mileage. It doesn't get more thorough than this.</p>
-                
-                <p> Members can filter real-world gas mileage results by the most important factors. </p>
-
-                <p> Note: Members who log in from countries that use the metric system input fuel economy information and view results in L/100km. </p>
-                
-                <p> <a href = "/gas_mileage_survey.php"> Click here </a> to report your car's gas mileage.</p>
+                <h2> Notes on Vehicle Specifications and Features</h2>
+                <p> How much room is enough? A man of average height (5'9") requires at least 40 inches of front legroom, 35 inches of rear legroom, and 36 inches of headroom.
+                     For a taller person, divide the amount over 5'9" in half (unless most of their height is in their torso or their legs) and add that to these minimums. </p>
+                <p> Manufacturers can game these numbers a little, so take these specs with a grain of salt (or three). 
+                    To verify how much roomy a car actually is (or isn't), first adjust the front seat so you're comfortable, then check the rear seat. </p>
+                <p> In hatchbacks, SUVs, and minivans, there are a number of different ways to measure cargo volume, so be especially careful with these specs. 
+                    Usually cargo volume is measured all the way to the ceiling, so you can't use it all and still see out the back window. 
+                    For this reason, 16 cu. ft. of cargo volume in a hatchback isn't as usable as a 16 cu. ft. trunk in a sedan. 
+                    Sometimes, though, the manufacturer doesn't measure all the way up to the ceiling. If a cargo volume spec seems lower than it should be, this is probably why. </p>
+                <p> Also note that we don't vary specs by powertrain. If a car is available with both a hybrid and a conventional engine, cargo volume will be lower with the hybrid. 
+                    Optional all-wheel-drive sometimes also affects cargo volume, fuel capacity, or both. </p>
+                <p> If a feature is listed as an option, hover over "option" to see which packages include it.
+                     To see what other features the package includes, check the option package contents section at the bottom of the standard and optional features page.</p>
             </div>
         </div>
     </div>

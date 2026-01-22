@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'mpg/style.css' %}">
+<link rel="stylesheet" href="{% static 'prices/style.css' %}">
 
 <section id = "page">
     <div id = "header">
@@ -56,15 +56,7 @@
                 <a id = "ribbon" href = "/join"> Join Us</a>
             </div>
             <div class = "listDiv">
-                <h2>  Top Gas Mileage Queries </h2>
-                <ol>
-                    <li> <a href = "/bloop"> Bloop </a></li>
-                    <li> <a href = "/shmoop"> Shmoop </a></li>
-                    <li> <a href = "/floop"> Floop </a></li>
-                </ol>
-            </div>
-            <div class = "listDiv">
-                <h2>  Top Gas Mileage Comparisons </h2>
+                <h2>  Top Price Comparisons </h2>
                 <ol>
                     <li> <a href = "/bloop"> Bloop </a></li>
                     <li> <a href = "/shmoop"> Shmoop </a></li>
@@ -74,17 +66,20 @@
         </div>
         <div id = "rightSide">
             <div id = "formDiv">
-                <h1> Real-World Gas Mileage </h1>
+                <h1> Car Price Comparisons </h1>
 
-                <h2> Find out the real deal: MPG for how and where you drive. </h2>
+                <h2> Truly apples-to-apples, like nowhere else. </h2>
 
+                <h2> Also: the quickest, easiest single car model pricing (just don't select a second model). </h2>
+
+                <h2> <strong> Step 1 of 3: Car make & model year selection </strong> </h2>
                 <form id = "dropdown" method = "post">
                     {% csrf_token %}
                     <h2> Vehicle 1 </h2>
                     {{ formOne.brand }}
                     {{ formOne.model }}
                     {{ formOne.year }}
-                    <h2> Vehicle 2 </h2>
+                    <h2> Vehicle 2 (Optional) </h2>
                     {{ formTwo.brand }}
                     {{ formTwo.model }}
                     {{ formTwo.year }}
@@ -94,22 +89,20 @@
             <div class = "greenDiv" class = "alertDiv">
                 No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
             </div>
-            <div id = "yellowDiv" class = "alertDiv">
-                <a href = "/sign-in">Sign in</a> or <a href = "/join"> join TrueDelta</a> to report your own car's gas mileage.
-            </div>
             <div id = "aboutDiv">
-                <h2> About TrueDelta's Gas Mileage Survey </h2>
-                <p> "Government estimates" often won't match real-world gas mileage. Welcome to the solution. 
-                    Thanks to real drivers sharing real information, you'll learn what fuel economy and MPG 
-                    to actually expect from a car, SUV or minivan based on how you drive and the roads you typically drive on.
-                     TrueDelta's Gas Mileage Survey is the only survey to ask car owners about driving style, terrain, A/C use, driving speed, 
-                     and other factors that can dramatically affect gas mileage. It doesn't get more thorough than this.</p>
+                <h2> A Better Way to Price Cars </h2>
+                <p> Motor Trend tried to fairly compare the prices of two cars using other sites. The all-too-common outcome:</p>
                 
-                <p> Members can filter real-world gas mileage results by the most important factors. </p>
+                <p> "The trouble is, those pesky Hyundai standard features scramble any efforts at simple comparison 
+                    (for instance, the Fusion doesn't offer stability control at any price, and ABS is an option on price-leader models).
+                     Maybe Alan Greenspan could figure this out, but our tea leaves are saying the Fusion's a bargain." </p>
 
-                <p> Note: Members who log in from countries that use the metric system input fuel economy information and view results in L/100km. </p>
+                <p> We say chuck the tea leaves, forget the finance guru, and try TrueDelta. </p>
                 
-                <p> <a href = "/gas_mileage_survey.php"> Click here </a> to report your car's gas mileage.</p>
+                <p> Only TrueDelta provides quick, thorough price comparisons between cars, SUVs and minivans equipped to your specifications. </p>
+                
+                <p> Pricing a single car model is also easier here. 
+                     Just check off the features you want, and the site automatically selects the best trim levels and option packages. </p>
             </div>
         </div>
     </div>

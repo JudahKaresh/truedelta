@@ -22,4 +22,6 @@ urlpatterns = [
     path('problems/', include("problems.urls")),
     path('reliability/', include("reliability.urls")),
     path('mpg/', include("mpg.urls")),
+    path('prices/', include("prices.urls")),
+    path('specs/', include("specs.urls")),
 ]
