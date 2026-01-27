@@ -76,9 +76,11 @@
                     <h2> Vehicle 1 </h2>
                     {{ formOne.brand}}
                     {{ formOne.model}}
-                    <h2> Vehicle 2 </h2>
-                    {{ formTwo.brand}}
-                    {{ formTwo.model}}
+                    <div id = "secondDropdown">
+                        <h2> Vehicle 2 </h2>
+                        {{ formTwo.brand}}
+                        {{ formTwo.model}}
+                    </div>
                     <button type = "submit">Search</button>
                 </form>
             </div>
@@ -128,6 +130,11 @@
     </div>
 </section>
 <script>
+    document.getElementById('id_compare').addEventListener('change', function() {
+        const formDiv = document.getElementById('secondDropdown');
+        formDiv.style.display = this.checked ? 'block' : 'none';
+    });
+
     const yearSelect = document.querySelector('#id_year');
     const makeSelect = document.querySelector('#id_make');
 
