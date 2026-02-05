@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'mpg.apps.MpgConfig',
     'prices.apps.PricesConfig',
     'specs.apps.SpecsConfig',
+    'search.apps.SearchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

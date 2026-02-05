@@ -24,4 +24,5 @@ urlpatterns = [
     path('mpg/', include("mpg.urls")),
     path('prices/', include("prices.urls")),
     path('specs/', include("specs.urls")),
+    path('search/', include("search.urls")),
 ]

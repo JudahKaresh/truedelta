@@ -1,6 +1,6 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'specs/style.css' %}">
+<link rel="stylesheet" href="{% static 'search/style.css' %}">
 
 <section id = "page">
     <div id = "header">
@@ -65,23 +65,83 @@
             </div>
         </div>
         <div id = "rightSide">
+            <h1> Find Car Models With... </h1>
+            <div class = "yellowDiv alertDiv">
+                For more specific suggestions based on your needs and wants, post a question on our <a href = "/next_car/">My Next Car?</a> page.
+            </div>
             <div id = "formDiv">
-                <h1> Compare Vehicle Specs and Features </h1>
                 <form id = "dropdown" method = "post">
                     {% csrf_token %}
-                    <h2> Report </h2>
-                    {{ reportForm.report }}
-                    {{ intlCheck }}
-                    {{ compareCheck }}
-                    <h2> Vehicle 1 </h2>
-                    {{ formOne.brand}}
-                    {{ formOne.model}}
-                    <div id = "secondDropdown">
-                        <h2> Vehicle 2 </h2>
-                        {{ formTwo.brand}}
-                        {{ formTwo.model}}
+                    <h3> Model Year </h3>
+                    <div id = "yearSelect">
+                        <div>
+                            <p> From </p>
+                            {{ yearForm.year }}
+                        </div>
+                        <div>
+                            <p> To </p>
+                            {{ yearForm.year }}
+                        </div>
                     </div>
-                    <button type = "submit">Search</button>
+                    <h3> Acceptable Brands </h3>
+                    <div>
+                        <input type = "checkbox" id = "mainstreamCheck">
+                        <label for = "mainstreamCheck">
+                            Mainstream Brands
+                        </label>
+                        <input type = "checkbox" id = "premiumCheck">
+                        <label for = "premiumCheck">
+                            Premium Brands
+                        </label>
+                    </div>
+                    <h3> Maximum Repair Frequency </h3>
+                    <div>
+                        <input type = "checkbox" id = "ignoreCheck">
+                        <label for = "ignoreCheck">
+                            Ignore reliability (to include models with no stats)
+                        </label>
+                    </div>
+                    <h3> Body Style </h3>
+                    <h3> Number of Doors </h3>
+                    <h3> Fuel Type </h3>
+                    <h3> Acceptable Transmissions </h3>
+                    <div class = "multiCheck">
+                        <input type = "checkbox" id = "autoCheck">
+                        <label for = "autoCheck">
+                            Automatic
+                        </label>
+                        <input type = "checkbox" id = "shiftCheck">
+                        <label for = "shiftCheck">
+                            Manually Shiftable Automatic
+                        </label>
+                        <input type = "checkbox" id = "cvtCheck">
+                        <label for = "cvtCheck">
+                            Continuously Variable (CVT)
+                        </label>
+                        <input type = "checkbox" id = "manualCheck">
+                        <label for = "manualCheck">
+                            Manual
+                        </label>
+                    </div>
+                    <h3> Acceptable Drivetrains </h3>
+                    <div class = "multiCheck">
+                        <input type = "checkbox" id = "frontCheck">
+                        <label for = "frontCheck">
+                            Front-Wheel Drive
+                        </label>
+                        <input type = "checkbox" id = "rearCheck">
+                        <label for = "rearCheck">
+                            Rear-Wheel Drive
+                        </label>
+                        <input type = "checkbox" id = "allCheck">
+                        <label for = "allCheck">
+                            AWD/4WD, all surfaces
+                        </label>
+                        <input type = "checkbox" id = "looseCheck">
+                        <label for = "looseCheck">
+                            AWD/4WD, only loose surfaces
+                        </label>
+                    </div>
                 </form>
             </div>
             <div id = "middleDiv">
@@ -92,7 +152,7 @@
                     then compare the prices before and after adjusting for feature differences. If you're a member, you can even specify how much to adjust the prices
                      based on how much each specific feature is worth to you.</p>
             </div>
-            <div class = "greenDiv" class = "alertDiv">
+            <div class = "greenDiv alertDiv">
                 No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
             </div>
             <div id = "aboutDiv">
