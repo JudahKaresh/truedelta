@@ -143,10 +143,27 @@ body {
                 }
                 .multiCheck {
                     display: grid;
-                    grid-template: 
-                    "a b"
-                    "c d";
-                    gap: 10px;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    height: fit-content;
+                }
+                #featuresDiv {
+                    display: flex;
+                    flex-direction: column;
+                    .featureGroups {
+                        display: flex;
+                        gap: 15px;
+                        flex-direction: row;
+                        align-items: center;
+                        p, h4 {
+                            margin: 1%;
+                        }
+                    }
+                }
+                .toggleFeatures{
+                        color: #104a7c;
+                        cursor: pointer;
+                        text-decoration: underline;
                 }
                 select {
                     width: 80%;
