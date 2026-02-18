@@ -25,24 +25,12 @@
     </div>
 </div>
 <div id="rightSide">
-    <div id="formDiv">
-        <h1> Car Problem Histories </h1>
-
-        <h2> What problems might you have with a car? Glad you asked. Choose a make and model to find out.</h2>
-
-        <form id="dropdown" method="post">
-            {% csrf_token %}
-            {{ form.category_title}}
-            {{ form.year}}
-            {{ form.make }}
-            <button type="submit">Search</button>
-        </form>
-    </div>
-    <div class="alertDiv green">
+    
+    <div id="greenDiv" class="alertDiv">
         No idea which car models you might be interested in? Find candidates in our <a href="/model-search">car model
             search</a>.
     </div>
-    <div class="alertDiv yellow">
+    <div id="yellowDiv" class="alertDiv">
         <a href="/sign-in">Sign in</a> or <a href="/join"> join TrueDelta</a> to post your own repair histories.
     </div>
     <div id="aboutDiv">

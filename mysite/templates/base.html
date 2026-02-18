@@ -1,0 +1,70 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<section id = "page">
+    <div id = "header">
+        <a id = "headerLogo" href = "/">
+            <img src="https://www.truedelta.com/images/logo-truedelta.gif" alt="truedelta | real car owners driving real car information">
+        </a>
+        <div id = "headerNav">
+            <div id = "headerLinks">
+                <p> Welcome, Guest </p>
+                <p> | </p>
+                <a href = "/join"> Join Now </a>
+                <p> | </p>
+                <a href = "/sign-in"> Sign In </a>
+                <p> | </p>
+                <a href = "/new_features"> Latest Features </a>
+            </div>
+            <div id = "membershipDiv">
+                <label> Current membership: </label>
+                <table id = "membershipTable">
+                    <tbody>
+                        <tr>
+                            <td> 1 </td>
+                            <td> 0 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                            <td> 3 </td>
+                            <td> 4 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id = "topBanner" class = "banner">
+        <a class = "bannerDiv" href = "/reviews"> Reviews </a>
+        <a class = "bannerDiv" href = "/next-car"> My Next Car </a>
+        <a class = "bannerDiv" href = "/owner"> Ask an Owner </a>
+        <a class = "bannerDiv" href = "/reliability"> Reliability </a>
+        <a class = "bannerDiv" href = "/problems"> Problems </a>
+        <a class = "bannerDiv" href = "/mpg"> MPG </a>
+        <a class = "bannerDiv" href = "/prices"> Prices </a>
+        <a class = "bannerDiv" href = "/specs"> Specs </a>
+        <a class = "bannerDiv" href = "/photos"> Photos </a>
+        <a class = "bannerDiv" href = "/search"> Model Search </a>
+    </div>
+
+    <div id = "main">
+        {% block main %}{% endblock %}
+    </div>
+
+    <div id = "bottomBanner" class = "banner">
+        <a class = "bannerDiv" href = "/contact-us"> Contact Us </a>
+        <a class = "bannerDiv" href = "/talk"> Talk </a>
+        <a class = "bannerDiv" href = "/blog"> Blog </a>
+        <a class = "bannerDiv" href = "/recent-news"> News </a>
+        <a class = "bannerDiv" href = "/about-us"> About </a>
+        <a class = "bannerDiv" href = "/recommend-us"> Recommend Us </a>
+        <a class = "bannerDiv" href = "/related-links"> Links </a>
+        <a class = "bannerDiv" href = "/xml/review_rss.xml"> RSS Feed </a>
+    </div>
+
+    <div id = "copyrightDiv">
+        <p> © 2004 - 2025 TrueDelta. All rights reserved. <a href = "/privacy-policy"> Privacy Policy </a> | <a href = "/terms"> Terms and Conditions </a> | <a href = "/copyright"> Copyright Policy </a></p>
+        <p> TrueDelta is not affiliated with any car manufacturer or their trademarks. </p>
+    </div>
+</section>
+{% block script %}{%endblock %}

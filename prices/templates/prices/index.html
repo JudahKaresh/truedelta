@@ -1,153 +1,66 @@
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{% static 'prices/style.css' %}">
-
-<section id = "page">
-    <div id = "header">
-        <a id = "headerLogo" href = "/">
-            <img src="https://www.truedelta.com/images/logo-truedelta.gif" alt="truedelta | real car owners driving real car information">
-        </a>
-        <div id = "headerNav">
-            <div id = "headerLinks">
-                <p> Welcome, Guest </p>
-                <p> | </p>
-                <a href = "/join"> Join Now </a>
-                <p> | </p>
-                <a href = "/sign-in"> Sign In </a>
-                <p> | </p>
-                <a href = "/new_features"> Latest Features </a>
-            </div>
-            <div id = "membershipDiv">
-                <label> Current membership: </label>
-                <table id = "membershipTable">
-                    <tbody>
-                        <tr>
-                            <td> 1 </td>
-                            <td> 0 </td>
-                            <td> 3 </td>
-                            <td> 4 </td>
-                            <td> 3 </td>
-                            <td> 4 </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+{% block main %}
+<div id="sidebar">
+    <div id="joinDiv">
+        <h2> Join TrueDelta </h2>
+        <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
+        <a id="ribbon" href="/join"> Join Us</a>
     </div>
-
-    <div id = "topBanner" class = "banner">
-        <a class = "bannerDiv" href = "/reviews"> Reviews </a>
-        <a class = "bannerDiv" href = "/next-car"> My Next Car </a>
-        <a class = "bannerDiv" href = "/owner"> Ask an Owner </a>
-        <a class = "bannerDiv" href = "/reliability"> Reliability </a>
-        <a class = "bannerDiv" href = "/problems"> Problems </a>
-        <a class = "bannerDiv" href = "/mpg"> MPG </a>
-        <a class = "bannerDiv" href = "/prices"> Prices </a>
-        <a class = "bannerDiv" href = "/specs"> Specs </a>
-        <a class = "bannerDiv" href = "/photos"> Photos </a>
-        <a class = "bannerDiv" href = "/search"> Model Search </a>
+    <div class="listDiv">
+        <h2> Top Price Comparisons </h2>
+        <ol>
+            <li> <a href="/bloop"> Bloop </a></li>
+            <li> <a href="/shmoop"> Shmoop </a></li>
+            <li> <a href="/floop"> Floop </a></li>
+        </ol>
     </div>
+</div>
+<div id="rightSide">
+    <div id="formDiv">
+        <h1> Car Price Comparisons </h1>
 
-    <div id = "main">
-        <div id = "sidebar">
-            <div id = "joinDiv">
-                <h2> Join TrueDelta </h2>
-                <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
-                <a id = "ribbon" href = "/join"> Join Us</a>
-            </div>
-            <div class = "listDiv">
-                <h2>  Top Price Comparisons </h2>
-                <ol>
-                    <li> <a href = "/bloop"> Bloop </a></li>
-                    <li> <a href = "/shmoop"> Shmoop </a></li>
-                    <li> <a href = "/floop"> Floop </a></li>
-                </ol>
-            </div>
-        </div>
-        <div id = "rightSide">
-            <div id = "formDiv">
-                <h1> Car Price Comparisons </h1>
+        <h2> Truly apples-to-apples, like nowhere else. </h2>
 
-                <h2> Truly apples-to-apples, like nowhere else. </h2>
+        <h2> Also: the quickest, easiest single car model pricing (just don't select a second model). </h2>
 
-                <h2> Also: the quickest, easiest single car model pricing (just don't select a second model). </h2>
-
-                <h2> <strong> Step 1 of 3: Car make & model year selection </strong> </h2>
-                <form id = "dropdown" method = "post">
-                    {% csrf_token %}
-                    <h2> Vehicle 1 </h2>
-                    {{ formOne.brand }}
-                    {{ formOne.model }}
-                    {{ formOne.year }}
-                    <h2> Vehicle 2 (Optional) </h2>
-                    {{ formTwo.brand }}
-                    {{ formTwo.model }}
-                    {{ formTwo.year }}
-                    <button type = "submit">Search</button>
-                </form>
-            </div>
-            <div class = "greenDiv" class = "alertDiv">
-                No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
-            </div>
-            <div id = "aboutDiv">
-                <h2> A Better Way to Price Cars </h2>
-                <p> Motor Trend tried to fairly compare the prices of two cars using other sites. The all-too-common outcome:</p>
-                
-                <p> "The trouble is, those pesky Hyundai standard features scramble any efforts at simple comparison 
-                    (for instance, the Fusion doesn't offer stability control at any price, and ABS is an option on price-leader models).
-                     Maybe Alan Greenspan could figure this out, but our tea leaves are saying the Fusion's a bargain." </p>
-
-                <p> We say chuck the tea leaves, forget the finance guru, and try TrueDelta. </p>
-                
-                <p> Only TrueDelta provides quick, thorough price comparisons between cars, SUVs and minivans equipped to your specifications. </p>
-                
-                <p> Pricing a single car model is also easier here. 
-                     Just check off the features you want, and the site automatically selects the best trim levels and option packages. </p>
-            </div>
-        </div>
+        <h2> <strong> Step 1 of 3: Car make & model year selection </strong> </h2>
+        <form id="dropdown" method="post">
+            {% csrf_token %}
+            <h2> Vehicle 1 </h2>
+            {{ formOne.brand }}
+            {{ formOne.model }}
+            {{ formOne.year }}
+            <h2> Vehicle 2 (Optional) </h2>
+            {{ formTwo.brand }}
+            {{ formTwo.model }}
+            {{ formTwo.year }}
+            <button type="submit">Search</button>
+        </form>
     </div>
-
-    <div id = "bottomBanner" class = "banner">
-        <a class = "bannerDiv" href = "/contact-us"> Contact Us </a>
-        <a class = "bannerDiv" href = "/talk"> Talk </a>
-        <a class = "bannerDiv" href = "/blog"> Blog </a>
-        <a class = "bannerDiv" href = "/recent-news"> News </a>
-        <a class = "bannerDiv" href = "/about-us"> About </a>
-        <a class = "bannerDiv" href = "/recommend-us"> Recommend Us </a>
-        <a class = "bannerDiv" href = "/related-links"> Links </a>
-        <a class = "bannerDiv" href = "/xml/review_rss.xml"> RSS Feed </a>
+    <div class="greenDiv" class="alertDiv">
+        No idea which car models you might be interested in? Find candidates in our <a href="/model-search">car model
+            search</a>.
     </div>
+    <div id="aboutDiv">
+        <h2> A Better Way to Price Cars </h2>
+        <p> Motor Trend tried to fairly compare the prices of two cars using other sites. The all-too-common outcome:
+        </p>
 
-    <div id = "copyrightDiv">
-        <p> © 2004 - 2025 TrueDelta. All rights reserved. <a href = "/privacy-policy"> Privacy Policy </a> | <a href = "/terms"> Terms and Conditions </a> | <a href = "/copyright"> Copyright Policy </a></p>
-        <p> TrueDelta is not affiliated with any car manufacturer or their trademarks. </p>
+        <p> "The trouble is, those pesky Hyundai standard features scramble any efforts at simple comparison
+            (for instance, the Fusion doesn't offer stability control at any price, and ABS is an option on price-leader
+            models).
+            Maybe Alan Greenspan could figure this out, but our tea leaves are saying the Fusion's a bargain." </p>
+
+        <p> We say chuck the tea leaves, forget the finance guru, and try TrueDelta. </p>
+
+        <p> Only TrueDelta provides quick, thorough price comparisons between cars, SUVs and minivans equipped to your
+            specifications. </p>
+
+        <p> Pricing a single car model is also easier here.
+            Just check off the features you want, and the site automatically selects the best trim levels and option
+            packages. </p>
     </div>
+</div>
+{%endblock%}
 </section>
-<script>
-    const yearSelect = document.querySelector('#id_year');
-    const makeSelect = document.querySelector('#id_make');
-
-    yearSelect.addEventListener('change', function() {
-        const yearId = this.value;
-
-        if (yearId) {
-            fetch(`/problems/ajax/load-makes/?year_id=${yearId}`)
-            .then(response => response.json())
-            .then(data => {
-
-                // Clear existing options
-                makeSelect.innerHTML = '<option value="">---------</option>';
-
-                // Add new options
-                data.forEach(make => {
-                    const option = document.createElement('option');
-                    option.value = make.id;
-                    option.textContent = make.make_title;
-                    makeSelect.appendChild(option);
-                });
-            });
-        } else {
-            makeSelect.innerHTML = '<option value="">---------</option>';
-        }
-    });
-</script>

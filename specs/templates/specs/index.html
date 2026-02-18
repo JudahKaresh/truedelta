@@ -1,164 +1,80 @@
-{% load static %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" href="{% static 'specs/style.css' %}">
-
-<section id = "page">
-    <div id = "header">
-        <a id = "headerLogo" href = "/">
-            <img src="https://www.truedelta.com/images/logo-truedelta.gif" alt="truedelta | real car owners driving real car information">
-        </a>
-        <div id = "headerNav">
-            <div id = "headerLinks">
-                <p> Welcome, Guest </p>
-                <p> | </p>
-                <a href = "/join"> Join Now </a>
-                <p> | </p>
-                <a href = "/sign-in"> Sign In </a>
-                <p> | </p>
-                <a href = "/new_features"> Latest Features </a>
-            </div>
-            <div id = "membershipDiv">
-                <label> Current membership: </label>
-                <table id = "membershipTable">
-                    <tbody>
-                        <tr>
-                            <td> 1 </td>
-                            <td> 0 </td>
-                            <td> 3 </td>
-                            <td> 4 </td>
-                            <td> 3 </td>
-                            <td> 4 </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+{% block main %}
+<div id="sidebar">
+    <div id="joinDiv">
+        <h2> Join TrueDelta </h2>
+        <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
+        <a id="ribbon" href="/join"> Join Us</a>
     </div>
-
-    <div id = "topBanner" class = "banner">
-        <a class = "bannerDiv" href = "/reviews"> Reviews </a>
-        <a class = "bannerDiv" href = "/next-car"> My Next Car </a>
-        <a class = "bannerDiv" href = "/owner"> Ask an Owner </a>
-        <a class = "bannerDiv" href = "/reliability"> Reliability </a>
-        <a class = "bannerDiv" href = "/problems"> Problems </a>
-        <a class = "bannerDiv" href = "/mpg"> MPG </a>
-        <a class = "bannerDiv" href = "/prices"> Prices </a>
-        <a class = "bannerDiv" href = "/specs"> Specs </a>
-        <a class = "bannerDiv" href = "/photos"> Photos </a>
-        <a class = "bannerDiv" href = "/search"> Model Search </a>
+    <div class="listDiv">
+        <h2> Most Wishlisted Cars: Specs </h2>
+        <ol>
+            <li> <a href="/bloop"> Bloop </a></li>
+            <li> <a href="/shmoop"> Shmoop </a></li>
+            <li> <a href="/floop"> Floop </a></li>
+        </ol>
     </div>
-
-    <div id = "main">
-        <div id = "sidebar">
-            <div id = "joinDiv">
-                <h2> Join TrueDelta </h2>
-                <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
-                <a id = "ribbon" href = "/join"> Join Us</a>
+</div>
+<div id="rightSide">
+    <div id="formDiv">
+        <h1> Compare Vehicle Specs and Features </h1>
+        <form id="dropdown" method="post">
+            {% csrf_token %}
+            <h2> Report </h2>
+            {{ reportForm.report }}
+            {{ intlCheck }}
+            {{ compareCheck }}
+            <h2> Vehicle 1 </h2>
+            {{ formOne.brand}}
+            {{ formOne.model}}
+            <div id="secondDropdown">
+                <h2> Vehicle 2 </h2>
+                {{ formTwo.brand}}
+                {{ formTwo.model}}
             </div>
-            <div class = "listDiv">
-                <h2>  Most Wishlisted Cars: Specs </h2>
-                <ol>
-                    <li> <a href = "/bloop"> Bloop </a></li>
-                    <li> <a href = "/shmoop"> Shmoop </a></li>
-                    <li> <a href = "/floop"> Floop </a></li>
-                </ol>
-            </div>
-        </div>
-        <div id = "rightSide">
-            <div id = "formDiv">
-                <h1> Compare Vehicle Specs and Features </h1>
-                <form id = "dropdown" method = "post">
-                    {% csrf_token %}
-                    <h2> Report </h2>
-                    {{ reportForm.report }}
-                    {{ intlCheck }}
-                    {{ compareCheck }}
-                    <h2> Vehicle 1 </h2>
-                    {{ formOne.brand}}
-                    {{ formOne.model}}
-                    <div id = "secondDropdown">
-                        <h2> Vehicle 2 </h2>
-                        {{ formTwo.brand}}
-                        {{ formTwo.model}}
-                    </div>
-                    <button type = "submit">Search</button>
-                </form>
-            </div>
-            <div id = "middleDiv">
-                <p> <strong> Note: </strong> <em> We have full features data on most cars from 2006 to 2018. If you don't see a model listed, we don't have this information for it.</em></p>
-                <p> Want to know which of two cars is more powerful? Which has more room inside? Perform a specs comparison to find out. </p>
-                <p> How do features compare? To see a full list of the standard and option features on both, perform a features comparison. </p>
-                <p> Know which features you want? Then head over to the <a href="/prices/"> price comparisons </a>, where you can select which features to include on both cars and we'll 
-                    then compare the prices before and after adjusting for feature differences. If you're a member, you can even specify how much to adjust the prices
-                     based on how much each specific feature is worth to you.</p>
-            </div>
-            <div class = "greenDiv" class = "alertDiv">
-                No idea which car models you might be interested in? Find candidates in our <a href = "/model-search">car model search</a>.
-            </div>
-            <div id = "aboutDiv">
-                <h2> Notes on Vehicle Specifications and Features</h2>
-                <p> How much room is enough? A man of average height (5'9") requires at least 40 inches of front legroom, 35 inches of rear legroom, and 36 inches of headroom.
-                     For a taller person, divide the amount over 5'9" in half (unless most of their height is in their torso or their legs) and add that to these minimums. </p>
-                <p> Manufacturers can game these numbers a little, so take these specs with a grain of salt (or three). 
-                    To verify how much roomy a car actually is (or isn't), first adjust the front seat so you're comfortable, then check the rear seat. </p>
-                <p> In hatchbacks, SUVs, and minivans, there are a number of different ways to measure cargo volume, so be especially careful with these specs. 
-                    Usually cargo volume is measured all the way to the ceiling, so you can't use it all and still see out the back window. 
-                    For this reason, 16 cu. ft. of cargo volume in a hatchback isn't as usable as a 16 cu. ft. trunk in a sedan. 
-                    Sometimes, though, the manufacturer doesn't measure all the way up to the ceiling. If a cargo volume spec seems lower than it should be, this is probably why. </p>
-                <p> Also note that we don't vary specs by powertrain. If a car is available with both a hybrid and a conventional engine, cargo volume will be lower with the hybrid. 
-                    Optional all-wheel-drive sometimes also affects cargo volume, fuel capacity, or both. </p>
-                <p> If a feature is listed as an option, hover over "option" to see which packages include it.
-                     To see what other features the package includes, check the option package contents section at the bottom of the standard and optional features page.</p>
-            </div>
-        </div>
+            <button type="submit">Search</button>
+        </form>
     </div>
-
-    <div id = "bottomBanner" class = "banner">
-        <a class = "bannerDiv" href = "/contact-us"> Contact Us </a>
-        <a class = "bannerDiv" href = "/talk"> Talk </a>
-        <a class = "bannerDiv" href = "/blog"> Blog </a>
-        <a class = "bannerDiv" href = "/recent-news"> News </a>
-        <a class = "bannerDiv" href = "/about-us"> About </a>
-        <a class = "bannerDiv" href = "/recommend-us"> Recommend Us </a>
-        <a class = "bannerDiv" href = "/related-links"> Links </a>
-        <a class = "bannerDiv" href = "/xml/review_rss.xml"> RSS Feed </a>
+    <div id="middleDiv">
+        <p> <strong> Note: </strong> <em> We have full features data on most cars from 2006 to 2018. If you don't see a
+                model listed, we don't have this information for it.</em></p>
+        <p> Want to know which of two cars is more powerful? Which has more room inside? Perform a specs comparison to
+            find out. </p>
+        <p> How do features compare? To see a full list of the standard and option features on both, perform a features
+            comparison. </p>
+        <p> Know which features you want? Then head over to the <a href="/prices/"> price comparisons </a>, where you
+            can select which features to include on both cars and we'll
+            then compare the prices before and after adjusting for feature differences. If you're a member, you can even
+            specify how much to adjust the prices
+            based on how much each specific feature is worth to you.</p>
     </div>
-
-    <div id = "copyrightDiv">
-        <p> © 2004 - 2025 TrueDelta. All rights reserved. <a href = "/privacy-policy"> Privacy Policy </a> | <a href = "/terms"> Terms and Conditions </a> | <a href = "/copyright"> Copyright Policy </a></p>
-        <p> TrueDelta is not affiliated with any car manufacturer or their trademarks. </p>
+    <div class="alertDiv green">
+        No idea which car models you might be interested in? Find candidates in our <a href="/model-search">car model
+            search</a>.
     </div>
-</section>
-<script>
-    document.getElementById('id_compare').addEventListener('change', function() {
-        const formDiv = document.getElementById('secondDropdown');
-        formDiv.style.display = this.checked ? 'block' : 'none';
-    });
-
-    const yearSelect = document.querySelector('#id_year');
-    const makeSelect = document.querySelector('#id_make');
-
-    yearSelect.addEventListener('change', function() {
-        const yearId = this.value;
-
-        if (yearId) {
-            fetch(`/problems/ajax/load-makes/?year_id=${yearId}`)
-            .then(response => response.json())
-            .then(data => {
-
-                // Clear existing options
-                makeSelect.innerHTML = '<option value="">---------</option>';
-
-                // Add new options
-                data.forEach(make => {
-                    const option = document.createElement('option');
-                    option.value = make.id;
-                    option.textContent = make.make_title;
-                    makeSelect.appendChild(option);
-                });
-            });
-        } else {
-            makeSelect.innerHTML = '<option value="">---------</option>';
-        }
-    });
-</script>
+    <div id="aboutDiv">
+        <h2> Notes on Vehicle Specifications and Features</h2>
+        <p> How much room is enough? A man of average height (5'9") requires at least 40 inches of front legroom, 35
+            inches of rear legroom, and 36 inches of headroom.
+            For a taller person, divide the amount over 5'9" in half (unless most of their height is in their torso or
+            their legs) and add that to these minimums. </p>
+        <p> Manufacturers can game these numbers a little, so take these specs with a grain of salt (or three).
+            To verify how much roomy a car actually is (or isn't), first adjust the front seat so you're comfortable,
+            then check the rear seat. </p>
+        <p> In hatchbacks, SUVs, and minivans, there are a number of different ways to measure cargo volume, so be
+            especially careful with these specs.
+            Usually cargo volume is measured all the way to the ceiling, so you can't use it all and still see out the
+            back window.
+            For this reason, 16 cu. ft. of cargo volume in a hatchback isn't as usable as a 16 cu. ft. trunk in a sedan.
+            Sometimes, though, the manufacturer doesn't measure all the way up to the ceiling. If a cargo volume spec
+            seems lower than it should be, this is probably why. </p>
+        <p> Also note that we don't vary specs by powertrain. If a car is available with both a hybrid and a
+            conventional engine, cargo volume will be lower with the hybrid.
+            Optional all-wheel-drive sometimes also affects cargo volume, fuel capacity, or both. </p>
+        <p> If a feature is listed as an option, hover over "option" to see which packages include it.
+            To see what other features the package includes, check the option package contents section at the bottom of
+            the standard and optional features page.</p>
+    </div>
+</div>
+{%endblock%}
