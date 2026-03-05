@@ -6,5 +6,5 @@ from django.http import JsonResponse
 
 def index(request):
 
-    return render(request, 'owner/index.html')
+    return render(request, 'nextCar/index.html')
 

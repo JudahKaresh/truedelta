@@ -25,4 +25,7 @@ urlpatterns = [
     path('prices/', include("prices.urls")),
     path('specs/', include("specs.urls")),
     path('search/', include("search.urls")),
+    path('reviews/', include("reviews.urls")),
+    path('nextCar/', include("nextCar.urls")),
+    path('owner/',include("owner.urls")),
 ]

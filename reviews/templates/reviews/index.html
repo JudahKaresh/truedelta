@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div id="sidebar">
+    <div id="joinDiv">
+        <h2> Join TrueDelta </h2>
+        <p> We are <b>103,000+</b> car owners sharing real-world car information. </p>
+        <a id="ribbon" href="/join"> Join Us</a>
+    </div>
+    <div class="listDiv">
+        <h2> Leaderboard </h2>
+        <h3> Most Comments (All-Time)</h3>
+        <ol>
+            <li> 1. <a href="/bloop"> Bloop </a> (25) </li>
+            <li> 2. <a href="/shmoop"> Shmoop </a> (57) </li>
+            <li> 3. <a href="/floop"> Floop </a> (36) </li>
+        </ol>
+    </div>
+</div>
+<div id = "rightSide">
+    <div>
+        <h1> Why (Not) This Car? </h1>
+        <p> What drives people to buy (or not buy) a certain car? TrueDelta's members share why they bought what they bought. Plus car reviews by site founder Michael Karesh. </p>
+        <p> Search for Reviews </p>
+    </div>
+    <div class="alertDiv yellow">
+        <a href="/sign-in">Sign in</a> or <a href="/join"> join TrueDelta</a> to post your own "whys" and "why nots."
+    </div>
+    <div id = "postsDiv">
+        <h2> Most Recent Pros and Cons </h2>
+        <div id = "pageSelect">
+            <button id = "previous"> Previous Page</button>
+            <p> Page 1 of 442 </p>
+            <button id = "next"> Next Page </button>
+        </div>
+        <div class = "post">
+            <div>
+                <p> 03/03/25 </p>
+            </div>
+            <div>
+                <a href = "https://www.truedelta.com/Lexus-ES/love-letters-O70238"> Lexus ES 350 F-Sport</a>
+                <h4> 2025 Lexus ES Love Letter </h4>
+                <p><em>Member93</em></p>
+                <p> Perhaps the last of the 3.5 liter V-6's Toyota is putting in a simple FWD configuration. </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

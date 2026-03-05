@@ -125,6 +125,15 @@ body {
         flex-direction: column;
         gap: 3px;
         background: #fff;
+        button {
+                    background: #ffab00;
+                    width: 25%;
+                    color: #104a7c;
+                    border: 0px;
+                    padding: 10px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
         #formDiv {
             padding-left: 10px;
             padding-right: 40%;
@@ -143,15 +152,6 @@ body {
                     color: #104a7c;
                     font-size: 14px;
                     border: 1px #104a7c solid;
-                }
-                button {
-                    background: #ffab00;
-                    width: 25%;
-                    color: #104a7c;
-                    border: 0px;
-                    padding: 10px;
-                    font-weight: bold;
-                    cursor: pointer;
                 }
                 #yearSelect {
                     display: flex;
@@ -180,6 +180,31 @@ body {
                         color: #104a7c;
                         cursor: pointer;
                         text-decoration: underline;
+                }
+            }
+        }
+        #postsDiv {
+            background: white;
+            #pageSelect {
+                gap: 20%;
+                button {
+                    width: 10%;
+                }
+                #previous {
+                    background: #646b70;
+                    color: white;
+                }
+            }
+            div {
+                background: white;
+                display: flex;
+                flex-direction: row;
+            }
+            .post {
+                padding: 10px;
+                gap: 5%;
+                div {
+                    flex-direction: column;
                 }
             }
         }
