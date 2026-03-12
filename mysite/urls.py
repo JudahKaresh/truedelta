@@ -28,4 +28,5 @@ urlpatterns = [
     path('reviews/', include("reviews.urls")),
     path('nextCar/', include("nextCar.urls")),
     path('owner/',include("owner.urls")),
+    path('photos/',include("photos.urls")),
 ]

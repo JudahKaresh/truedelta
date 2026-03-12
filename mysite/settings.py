@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
     'nextCar.apps.NextCarConfig',
     'owner.apps.OwnerConfig',
+    'photos.apps.PhotosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
