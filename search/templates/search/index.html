@@ -17,12 +17,12 @@
     </div>
 </div>
 <div id="rightSide">
-    <h1> Find Car Models With... </h1>
-    <div class="yellow alertDiv">
-        For more specific suggestions based on your needs and wants, post a question on our <a href="/next_car/">My Next
-            Car?</a> page.
-    </div>
     <div id="formDiv">
+        <h1> Find Car Models With... </h1>
+        <div class="yellow alertDiv">
+            For more specific suggestions based on your needs and wants, post a question on our <a href="/nextCar/">My Next
+                Car?</a> page.
+        </div>
         <form id="dropdown" method="post">
             {% csrf_token %}
             <h3> Model Year </h3>
@@ -55,8 +55,11 @@
                 </label>
             </div>
             <h3> Body Style </h3>
+                {{ bodyForm.body }}
             <h3> Number of Doors </h3>
+                {{ doorForm.doors }}
             <h3> Fuel Type </h3>
+                {{ fuelForm.fuel }}
             <h3> Acceptable Transmissions </h3>
             <div class="multiCheck">
                 <div class="checkDiv">

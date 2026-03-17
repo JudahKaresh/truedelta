@@ -3,13 +3,6 @@ from .models import VehicleForm, CarModel, ReportForm
 from .forms import IntlCheck, CompareCheck
 from django.http import JsonResponse
 
-#from .models import Category
-# Create your views here.
-
-#def index(request):
-#    form = MyForm()
-#    return render(request, "problems/index.html",{'form': form})
-
 def index(request):
     if request.method == 'POST':
         reportForm = ReportForm(request.POST)
