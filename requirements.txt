@@ -1,0 +1,9 @@
+# Core
+Django==5.1.4
+psycopg[binary]==3.2.3
+
+# Settings / environment
+django-environ==0.11.2
+
+# Dev / tooling (install via: pip install -r requirements-dev.txt)
+# See requirements-dev.txt
